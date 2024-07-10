@@ -1,10 +1,13 @@
 import React from 'react';
-import Navbar from './components/Navbar.jsx';
+import {NavBar} from './components/NavBar';
+import {ItemListContainer} from './components/ItemListContainer';
+import"bootstrap-icons/font/bootstrap-icons.css"
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <NavBar />
+      <ItemListContainer greeting="HOLA!" />
     </div>
   );
 }
