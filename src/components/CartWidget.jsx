@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
 export const CartWidget = () => {
-  const [itemCount, setItemCount] = useState(0); 
+  const [cantidadArticulos, setCantidadArticulos] = useState(0);
 
   useEffect(() => {
-    const fetchCartItemCount = async () => {
-      const count = 9;
-      setItemCount(count);
+    const obtenerCantidadArticulos = async () => {
+      const cantidad = 9;
+      setCantidadArticulos(cantidad);
     };
 
-    fetchCartItemCount();
+    obtenerCantidadArticulos();
   }, []);
 
-  return ( 
+  return (
     <div className="cart-widget">
-    <a href="" className="nav-link">
-      <i className="bi bi-cart3"></i>
-      {itemCount > 0 && <span className="item-count">{itemCount}</span>}
-    </a>
-  </div>
+      <a href="" className="nav-link">
+        <i className="bi bi-cart3"></i>
+        {cantidadArticulos > 0 && (
+          <span className="item-count">{cantidadArticulos}</span>
+        )}
+      </a>
+    </div>
   );
 };

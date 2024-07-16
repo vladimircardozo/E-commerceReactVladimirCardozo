@@ -1,0 +1,44 @@
+[
+    {
+        "id_producto": 1,
+        "nombre": "Bcaa 2000 X 120 Caps Star Nutrition Aminoácidos Sabor Neutro",
+        "precio": 11.977,
+        "imagen": "../assets/img/Bcaa 2000 X 120 Caps Star Nutrition Aminoácidos Sabor Neutro.jpg"
+    },
+    {
+        "id_producto": 2,
+        "nombre": "Proteina De Suero Whey Protein Star Nutrition",
+        "precio": 28.213,
+        "imagen": "../assets/img/Proteina De Suero Whey Protein Star Nutrition.jpg"
+    },
+    {
+        "id_producto": 3,
+        "nombre": "Pump V8 Pre Workout Star Nutrition 285 Gr Cafeína Taurina",
+        "precio": 21.375,
+        "imagen": "../assets/img/Pump V8 Pre Workout Star Nutrition 285 Gr Cafeína Taurina.jpg"
+    },
+    {
+        "id_producto": 4,
+        "nombre": "Suplemento En Barra Mervicklab Whey Protein Bar Carbohidratos Sabor Chocolate",
+        "precio": 16.204,
+        "imagen": "../assets/img/Suplemento En Barra Mervicklab Whey Protein Bar Carbohidratos Sabor Chocolate.jpg"
+    },
+    {
+        "id_producto": 5,
+        "nombre": "Suplemento En Polvo Star Nutrition Glutamina En Pote De 300g",
+        "precio": 21.487,
+        "imagen": "../assets/img/Suplemento En Polvo Star Nutrition Glutamina En Pote De 300g.jpg"
+    },
+    {
+        "id_producto": 6,
+        "nombre": "Suplemtno en polvo star nutrition creatine",
+        "precio": 28.579,
+        "imagen": "../assets/img/Suplemtno en polvo star nutrition creatine.jpg"
+    },
+    {
+        "id_producto": 7,
+        "nombre": "Vaso Shaker Legend Tapa Rosca Antigrumo Clasico De 600ml",
+        "precio": 2.138,
+        "imagen": "../assets/img/Vaso Shaker Legend Tapa Rosca Antigrumo Clasico De 600ml.jpg"
+    }
+]
