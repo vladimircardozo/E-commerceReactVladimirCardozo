@@ -7,8 +7,6 @@ import products from "../data/productos.json";
 export const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [productos, setProductos] = useState([]);
-
 
   useEffect(() => {
     const fetchItems = () => {
