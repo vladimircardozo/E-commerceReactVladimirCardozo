@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import ItemDetail from "./ItemDetail";
 
 import data from "../data/productos.json";
 
@@ -23,16 +24,7 @@ export const ItemDetailContainer = () => {
     <Container>
       <h1>Detalles</h1>
       {producto ? (
-        <div className="card mb-3 rounded-0 shadow small-card" >
-          <img src={producto.imagen} className="card-img-top" alt={producto.nombre} />
-          <div className="card-body">
-            <h5 className="card-title">{producto.nombre}</h5>
-            <p className="card-text"><b>Descripción del producto:</b> {producto.descripcion}</p>
-            <p className="card-text">
-               Precio: ${producto.precio}
-            </p>
-          </div>
-        </div>
+        <ItemDetail producto={producto}/>
       ) : (
         <p>Cargando o producto no encontrado...</p>
       )}
