@@ -2,38 +2,43 @@ import React, { useState, useEffect } from 'react';
 import './css/navbar.css';
 import ItemList from './ItemList';
 
-export const ItemListContainer = ({greeting}) => {
-  const [items,setItems] = useState([]);
+import products from "../data/productos.json";
+
+export const ItemListContainer = ({ greeting }) => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [productos, setProductos] = useState([]);
+
 
   useEffect(() => {
-    const fetchItems =  () => {
-
-      new Promise((resolve, reject) => {
+    const fetchItems = () => {
+      new Promise((resolve) => {
         setTimeout(() => {
-          fetch("../public/productos.json")
-          .then(response => response.json())
-          .then(data => resolve(data))
-          .catch(err => reject(err));
-        }, 2000)
+          resolve(products);
+        }, 2000);
       })
       .then(data => {
         setItems(data);
+        setLoading(false);
       })
-      .catch (error => {
-        console.error("Error al obtener los productos:", error)
-      }) 
+      .catch(error => {
+        console.error("Error al obtener los productos:", error);
+        setLoading(false)
+      });
     }
 
     fetchItems();
   }, []);
-  
 
   return (
     <div className="container mt-4">
       <h1 className='my-2'>{greeting}</h1>
-      <ItemList items={items} />
+      {loading ? (
+        <p>Cargando...</p>
+      ) : (<ItemList items={items} />)}
     </div>
   );
 };
 
 export default ItemListContainer;
+
