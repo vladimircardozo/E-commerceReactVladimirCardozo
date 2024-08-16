@@ -38,6 +38,8 @@ React Router : para manejar rutinas del lado del cliente.
 
 JavaScript : lenguaje principal utilizado para scripts.
 
+<hr/>
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
