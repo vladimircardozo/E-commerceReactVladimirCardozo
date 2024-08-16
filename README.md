@@ -20,7 +20,7 @@ Clonar el repositorio :git clone repository_url
 
 Instalar dependencias : ejecutar npm installpara instalar todas las dependencias necesarias.
 
-Iniciar el servidor de desarrollo : Ejecutar npm startpara iniciar el servidor de desarrollo.
+Iniciar el servidor de desarrollo : Ejecutar npm start para iniciar el servidor de desarrollo.
 
 Configurar Firebase : configure Firebase en el proyecto con sus credenciales.
 
