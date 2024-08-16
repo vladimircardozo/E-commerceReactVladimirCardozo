@@ -1,34 +1,37 @@
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import ItemDetail from "./ItemDetail";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import ItemDetail from './ItemDetail';
 
-import data from "../data/productos.json";
-
-export const ItemDetailContainer = () => {
+const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchData = new Promise((resolve) => {
-      setTimeout(() => resolve(data), 2000);
-    });
+    const db = getFirestore();
+    const itemRef = doc(db, "items", id);
 
-    fetchData.then((response) => {
-      const item = response.find((i) => i.id_producto === Number(id));
-      setProducto(item);
-    });
+    getDoc(itemRef)
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          setProducto({ id: docSnapshot.id, ...docSnapshot.data() });
+        } else {
+          console.log("No such document!");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching the document: ", error);
+      });
   }, [id]);
 
   return (
-    <Container>
-      <h1>Detalles</h1>
+    <div>
       {producto ? (
-        <ItemDetail producto={producto}/>
+        <ItemDetail producto={producto} />
       ) : (
         <p>Cargando o producto no encontrado...</p>
       )}
-    </Container>
+    </div>
   );
 };
 

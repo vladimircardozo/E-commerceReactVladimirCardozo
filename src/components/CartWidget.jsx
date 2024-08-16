@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { ItemsContext } from '../contexts/ItemsContext';
+import { Link } from 'react-router-dom';
 
 export const CartWidget = () => {
-  const [cantidadArticulos, setCantidadArticulos] = useState(0);
+  const { cartItems } = useContext(ItemsContext);
 
-  useEffect(() => {
-    const obtenerCantidadArticulos = async () => {
-      const cantidad = 9;
-      setCantidadArticulos(cantidad);
-    };
-
-    obtenerCantidadArticulos();
-  }, []);
+  const cantidadArticulos = cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
 
   return (
     <div className="cart-widget">
-      <a href="" className="nav-link">
+      <Link to="/carrito" className="nav-link">
         <i className="bi bi-cart3"></i>
         {cantidadArticulos > 0 && (
           <span className="item-count">{cantidadArticulos}</span>
         )}
-      </a>
+      </Link>
     </div>
   );
 };
