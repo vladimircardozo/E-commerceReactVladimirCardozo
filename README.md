@@ -20,7 +20,7 @@ Clonar el repositorio :git clone repository_url
 
 Instalar dependencias : ejecutar npm installpara instalar todas las dependencias necesarias.
 
-Iniciar el servidor de desarrollo : Ejecutar npm startpara iniciar el servidor de desarrollo.
+Iniciar el servidor de desarrollo : Ejecutar npm start para iniciar el servidor de desarrollo.
 
 Configurar Firebase : configure Firebase en el proyecto con sus credenciales.
 
@@ -37,6 +37,8 @@ Bootstrap : marco CSS para diseño responsivo.
 React Router : para manejar rutinas del lado del cliente.
 
 JavaScript : lenguaje principal utilizado para scripts.
+
+<hr/>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
