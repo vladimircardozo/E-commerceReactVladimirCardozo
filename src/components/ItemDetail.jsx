@@ -10,7 +10,7 @@ const ItemDetail = ({ producto }) => {
   };
 
   return (
-    <div className="container card my-3 rounded-0 shadow small-card h-100">
+    <div className="container card my-3 rounded-0 shadow small-card">
       <img src={producto.image} className="card-img-top card-img-top-detail" alt={producto.title} />
       <div className="card-body">
         <h5 className="card-title">{producto.title}</h5>

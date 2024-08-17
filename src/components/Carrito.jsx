@@ -1,12 +1,13 @@
-import React, { useContext,useState  } from 'react';
-import {getFirestore, collection, addDoc} from "firebase/firestore"
+import React, { useContext, useState } from 'react';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { ItemsContext } from '../contexts/ItemsContext';
+import Checkout from './Checkout';
 
 const initialValues = {
-  name: "",
-  email: "",
-  phone: "",
-}
+  name: '',
+  email: '',
+  phone: '',
+};
 
 const Carrito = () => {
   const [buyer, setBuyer] = useState(initialValues);
@@ -17,27 +18,28 @@ const Carrito = () => {
     0
   );
 
-  const handleChage = (ev) => {
-    setBuyer(prev => {
-      return {...prev, [ev.target.name]: ev.target.value  }
-    });
+  const handleChange = (ev) => {
+    setBuyer((prev) => ({
+      ...prev,
+      [ev.target.name]: ev.target.value,
+    }));
   };
 
   const handleOrder = () => {
     const order = {
-      buyer, 
+      buyer,
       items: cartItems,
       total,
     };
 
     const db = getFirestore();
-    const orderCollection = collection(db, "orders");
+    const orderCollection = collection(db, 'orders');
 
-    addDoc(orderCollection, order).then(({id}) => {
+    addDoc(orderCollection, order).then(({ id }) => {
       if (id) {
-        alert("Si orden: " + id + " ha sido completada!" );
-        clear()
-        setBuyer(initialValues)
+        alert('Su orden: ' + id + ' ha sido completada!');
+        clear();
+        setBuyer(initialValues);
       }
     });
   };
@@ -74,28 +76,19 @@ const Carrito = () => {
             ))}
           </ul>
           <h3>Total: ${total}</h3>
-          <button onClick={clear} className="btn btn-secondary mt-2 ">
+          <button onClick={clear} className="btn btn-secondary mt-2">
             Vaciar Carrito
           </button>
         </div>
       )}
-      <hr /> {!!cartItems.length && (
-      <form>
-        <div>
-          <label htmlFor="">Nombre</label>
-          <input type='text' value={buyer.name} onChange={handleChage} name='name' required/>
-        </div>
-        <div>
-          <label htmlFor="">Email</label>
-          <input type='email'  value={buyer.email} onChange={handleChage} name='email' required/>
-        </div>
-        <div>
-          <label htmlFor="">Teléfono</label>
-          <input type='tel' pattern="[A-Za-z\s]{3,}" value={buyer.phone} onChange={handleChage} name='phone' required/>
-        </div>
-        <button className="btn btn-primary border-0" type='button' onClick={handleOrder}>Comprar</button>
-      </form> 
-    )}
+      <hr />
+      {!!cartItems.length && (
+        <Checkout
+          buyer={buyer}
+          handleChange={handleChange}
+          handleOrder={handleOrder}
+        />
+      )}
     </div>
   );
 };
